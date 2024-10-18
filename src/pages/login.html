@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSIR-CRI BOOKING</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+    />
+    <script src="https://use.fontawesome.com/a53bfad264.js"></script>
+  </head>
+  <body>
+    <section>
+      <header>
+        <nav class="Nav">
+          <a class="logo" href="./index.html">
+            <img
+              src="./images/csir logo.webp"
+              class="logoImg"
+              alt="CSIR logo"
+            />CSIR
+          </a>
+          <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="/">Auditoriums</a>
+            <a href="/">About</a>
+            <a href="/">Contact Us</a>
+          </nav>
+        </nav>
+      </header>
+    </section>
+
+    <section>
+      <div id="signUp">
+        <div class="signUpContainer">
+          <form action="/form" class="loginForm" id="loginForm">
+            <h1 id="formTitle">Welcome Back!</h1>
+            <p id="formSubtitle">Please enter your details</p>
+
+            <input
+              type="text"
+              name="username"
+              placeholder="User name"
+              class="loginInput"
+              required
+            />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="loginInput"
+              required
+            />
+
+            <!-- Additional fields for sign-up -->
+            <div id="additionalFields" style="display: none">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="loginInput"
+                required
+              />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                class="loginInput"
+                required
+              />
+            </div>
+
+            <button class="buttons afro" type="submit">Submit</button>
+            <p>
+              <span id="toggleText">Don't have an account?</span>
+              <a href="#" id="toggleForm">Sign Up</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+      </div>
+      <p>@2024 CSIR-CRI | IT SUPPORT</p>
+    </section>
+
+    <script>
+      // Toggle form between login and signup modes
+      const toggleFormLink = document.getElementById("toggleForm");
+      const additionalFields = document.getElementById("additionalFields");
+      const formTitle = document.getElementById("formTitle");
+      const formSubtitle = document.getElementById("formSubtitle");
+      const toggleText = document.getElementById("toggleText");
+
+      let isSignUp = false;
+
+      toggleFormLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        isSignUp = !isSignUp;
+
+        if (isSignUp) {
+          formTitle.innerText = "Create Your Account";
+          formSubtitle.innerText = "Please enter your details to sign up";
+          additionalFields.style.display = "block"; // Show extra fields for sign-up
+          toggleText.innerText = "Already have an account?";
+          toggleFormLink.innerText = "Login";
+        } else {
+          formTitle.innerText = "Welcome Back!";
+          formSubtitle.innerText = "Please enter your details";
+          additionalFields.style.display = "none"; // Hide extra fields for login
+          toggleText.innerText = "Don't have an account?";
+          toggleFormLink.innerText = "Sign Up";
+        }
+      });
+    </script>
+  </body>
+</html>
